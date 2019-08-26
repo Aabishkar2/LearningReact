@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { NavLink } from 'react-router-dom'
 
 class Header extends Component {
     render() {
@@ -6,12 +7,14 @@ class Header extends Component {
             <div>
                 <header className="main-header">
                     {/* Logo */}
-                    <a href="index2.html" className="logo">
-                    {/* mini logo for sidebar mini 50x50 pixels */}
-                    <span className="logo-mini"><b>A</b>LT</span>
-                    {/* logo for regular state and mobile devices */}
-                    <span className="logo-lg"><b>Admin</b>LTE</span>
-                    </a>
+                    <nav>
+                        <NavLink to="/" className="logo">
+                        {/* mini logo for sidebar mini 50x50 pixels */}
+                        <span className="logo-mini"><b>A</b>LT</span>
+                        {/* logo for regular state and mobile devices */}
+                        <span className="logo-lg"><b>Admin</b>LTE</span>
+                        </NavLink>
+                    </nav>
                     {/* Header Navbar: style can be found in header.less */}
                     <nav className="navbar navbar-static-top">
                     {/* Sidebar toggle button*/}
@@ -35,7 +38,7 @@ class Header extends Component {
                                 <li>{/* start message */}
                                     <a href="#">
                                     <div className="pull-left">
-                                        <img src="dist/img/user2-160x160.jpg" className="img-circle" alt="User Image" />
+                                        <img src="dist/img/user2-160x160.jpg" className="img-circle" alt="User" />
                                     </div>
                                     <h4>
                                         Support Team
@@ -48,7 +51,7 @@ class Header extends Component {
                                 <li>
                                     <a href="#">
                                     <div className="pull-left">
-                                        <img src="dist/img/user3-128x128.jpg" className="img-circle" alt="User Image" />
+                                        <img src="dist/img/user3-128x128.jpg" className="img-circle" alt="User" />
                                     </div>
                                     <h4>
                                         AdminLTE Design Team
@@ -60,7 +63,7 @@ class Header extends Component {
                                 <li>
                                     <a href="#">
                                     <div className="pull-left">
-                                        <img src="dist/img/user4-128x128.jpg" className="img-circle" alt="User Image" />
+                                        <img src="dist/img/user4-128x128.jpg" className="img-circle" alt="User" />
                                     </div>
                                     <h4>
                                         Developers
@@ -72,7 +75,7 @@ class Header extends Component {
                                 <li>
                                     <a href="#">
                                     <div className="pull-left">
-                                        <img src="dist/img/user3-128x128.jpg" className="img-circle" alt="User Image" />
+                                        <img src="dist/img/user3-128x128.jpg" className="img-circle" alt="User" />
                                     </div>
                                     <h4>
                                         Sales Department
@@ -84,7 +87,7 @@ class Header extends Component {
                                 <li>
                                     <a href="#">
                                     <div className="pull-left">
-                                        <img src="dist/img/user4-128x128.jpg" className="img-circle" alt="User Image" />
+                                        <img src="dist/img/user4-128x128.jpg" className="img-circle" alt="User" />
                                     </div>
                                     <h4>
                                         Reviewers
@@ -217,13 +220,13 @@ class Header extends Component {
                         {/* User Account: style can be found in dropdown.less */}
                         <li className="dropdown user user-menu">
                             <a href="#" className="dropdown-toggle" data-toggle="dropdown">
-                            <img src="dist/img/user2-160x160.jpg" className="user-image" alt="User Image" />
+                            <img src="dist/img/user2-160x160.jpg" className="user-image" alt="User" />
                             <span className="hidden-xs">Alexander Pierce</span>
                             </a>
                             <ul className="dropdown-menu">
                             {/* User image */}
                             <li className="user-header">
-                                <img src="dist/img/user2-160x160.jpg" className="img-circle" alt="User Image" />
+                                <img src="dist/img/user2-160x160.jpg" className="img-circle" alt="User" />
                                 <p>
                                 Alexander Pierce - Web Developer
                                 <small>Member since Nov. 2012</small>
@@ -256,9 +259,6 @@ class Header extends Component {
                             </ul>
                         </li>
                         {/* Control Sidebar Toggle Button */}
-                        <li>
-                            <a href="#" data-toggle="control-sidebar"><i className="fa fa-gears" /></a>
-                        </li>
                         </ul>
                     </div>
                     </nav>
