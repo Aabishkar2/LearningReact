@@ -3,16 +3,25 @@ import { Redirect } from 'react-router-dom'
 
 export class Login extends Component {
 
-    state = {
-        invalidInput: false
+    constructor(props) {
+        super(props)
+        let loggedIn = localStorage.getItem('authenticated') === "true" ? true : false;
+        this.state = {
+            invalidInput: false,
+            loggedIn
+        }
     }
-
+    
     componentDidMount() {
         document.body.classList.add("login-page");
     }
 
     render() {
         const invalidLogin = {display: this.state.invalidInput ? 'block' : 'none'};
+
+        if(this.state.loggedIn) {
+           return <Redirect to="/dashboard" />
+        }
         return (
             <div>
                 <div className="login-box">
@@ -24,11 +33,11 @@ export class Login extends Component {
                         <p className="login-box-msg">Sign in to start your session</p>
                         <form onSubmit={this.handleSubmit}>
                         <div className="form-group has-feedback">
-                            <input type="email" className="form-control" name="email" placeholder="Email" />
+                            <input type="email" className="form-control" name="email" placeholder="Email" required />
                             <span className="glyphicon glyphicon-envelope form-control-feedback" />
                         </div>
                         <div className="form-group has-feedback">
-                            <input type="password" className="form-control" name="password" placeholder="Password" />
+                            <input type="password" className="form-control" name="password" placeholder="Password" required />
                             <span className="glyphicon glyphicon-lock form-control-feedback" />
                         </div>
                         <div className="row">
@@ -58,9 +67,7 @@ export class Login extends Component {
         const data = new FormData(event.target);
         if(data.get('email') === "aabishkar2@gmail.com" && data.get('password') === "123456"){
             localStorage.setItem('authenticated', 'true')
-            this.props.history.push('/dashboard')
-        } else {
-            this.setState({ invalidInput: true });
+            this.setState({loggedIn: true})
         }
     }
 }
